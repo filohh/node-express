@@ -57,8 +57,11 @@ app.get('/weather', (req, res) => {
     }
 
     forecast(address, longitude, (error, forecastData) => {
-      if (error) {
-         return res.send(error)
+      if (forecastData === undefined) {
+        return res.send({
+          Location: address,
+          Forecast: 'Local indefinido'
+        })
       }
       
       return res.send({
