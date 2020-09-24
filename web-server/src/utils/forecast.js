@@ -9,7 +9,7 @@ const forecast = (location, longitude, callback) => {
         } else if (body.cod === '404') {
             callback('Unable to find location', undefined)
         } else {
-            callback(undefined, body.weather[0].description + ' It is currently ' + body.main.temp + ' degress out. ')
+            callback(undefined, body.weather[0].main + ', ' + body.weather[0].description + ' It is currently ' + body.main.temp + ' degress out. ')
         }
     })
 }
