@@ -55,7 +55,7 @@ app.get('/weather', (req, res) => {
     if (error) {
       return res.send(error)
     }
-    console.log('geocode', location)
+    
     forecast(address, longitude, (error, forecastData) => {
       if (forecastData === undefined) {
         return res.send({
@@ -65,7 +65,7 @@ app.get('/weather', (req, res) => {
       }
       
       return res.send({
-        Location: address,
+        Location: location,
         Forecast: forecastData,
         })
       })
